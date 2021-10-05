@@ -1,4 +1,4 @@
-# Vim 专家
+# Vim 专家级指南
 
 原文链接: [https://thevaluable.dev/vim-expert/](https://thevaluable.dev/vim-expert/)
 
