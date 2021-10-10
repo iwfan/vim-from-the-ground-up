@@ -79,5 +79,87 @@ Vim 的一个优点便是可以让你的手一直放在键盘上，而不需要�
 第一个你应当学习的规则便是如何正确的放置你的双手：
 
 ![illustration of a keyboard with home row keys](https://thevaluable.dev/images/2019/vim-beginner/home_row_keys.png)
+[图源](http://www.atypingtest.com/)
 
-🚧 Working in progress, PR is welcome!
+`a`、`s`、`d`、`f`、与`j`、`k`、`l`、`;`这几个键被称为基本键位。它们是你打字时双手的起点，手指放置于此，你便能够容易的触及其他按钮。
+
+你可能会注意到 `f` 与 `j` 按钮上的小凸起：这是能让你知道你的食指应该放在哪的标记。放好食指后，你的其他其他手指便可以很容易的放到其他的基本键上。
+
+你要训练的第二条规则是：打字的时候不要看键盘。当你不记得键位在哪里时，也尽量不要去看键盘，试着猜一猜也好。
+
+我好多年来都在用两个手指打字，最初实践这些准则时感觉非常不适应。但现在，我再不是两指打字了，而且正确的打字方式也舒服了很多。
+
+熟悉新的打字方式只用掉了我一到两周的时间，这当然不是因为我是天才，只是因为它很简单。
+
+#### 第一周
+
+当你决定使用我上面描述的两个准则时，你需要在**任何时间**都遵循这些规则，这将需要你 100% 的投入。当你突然发现你又用起了旧的错误习惯时，耐心点，不要把这当做是失败，只要继续调整为正确的习惯即可。这是学习过程中很常见的。
+
+前三天将是最困难的，你总是会在不经意间又切换到坏习惯上去，打字也经常会出错，速度也会慢下来。
+
+幸运的是，第一周结束后，出错的频率会减少，而你也会慢慢的不再去看你的键盘。
+
+#### 第二周
+
+第二周时，你将注意到自己的出错减少了更多，并且你不再需要去用眼睛看键位了。
+
+而这周结束后，你会发现你的打字速度已经提升上来了，你将被满满的成就感所包围。
+
+#### 速度与准度
+
+在你最初的这两周训练时，你不应该关注速度与准度。只是尽自己努力去打字就好，不要担心其他任何事情。
+
+训练完成之后，你就可以开始关注速度与准度了：尽量去快速而又准确的输入。
+
+为了能训练这些输入技巧，你可以使用一些非常有帮助的打字练习软件。
+
+这些是我喜欢的：
+
+- [Type Racer](https://play.typeracer.com/)
+- [Online Typing Test WPM](https://www.keyhero.com/)
+- [Speed Coder](http://www.speedcoder.net/)
+
+## Vim 还是 Neovim？
+
+![Vim or Neovim? Neovim!](https://thevaluable.dev/images/2019/vim-beginner/vim-neovim.webp)
+
+有了基础知识之后，让我们来安装 Neovim。
+
+“Neovim？这是什么鬼东西？”你可能想要这样问。
+
+Neovim 是[重构版的 Vim](https://neovim.io/charter/)。它与 Vim 是完全兼容的，我强烈推荐你使用它，而不是使用常规的 Vim，因为 Neovim 是被优化的开箱即用的。
+
+这是这两个软件的官方链接：
+
+- [Neovim](https://neovim.io/)
+- [Vim](https://www.vim.org/)
+
+因为 Neovim 与 Vim 是**几乎完全相同**的（基础原理不同），我将继续使用通用的名词**Vim**来称呼它们。
+
+## Vim 配置
+
+在 Vim 中，几乎所有东西都是可配置的。这是非常疯狂的，你可以根据你的特殊要求，甚至根据你任何的疯狂的想法来定制你的编辑器。
+
+你的配置文件应该默认会在下面的路径，取决于你使用的是 Vim 还是 Neovim：
+
+- Vim：`~/.vimrc`
+- Neovim：`~/.config/nvim/init.vim` 或 `~/nvim/init.vim`（取决于你的环境变量`@XDG_CONFIG_HOME`的值）。
+
+我将使用**vimrc** 来指代该配置文件。
+
+让我们用你最喜欢的编辑器（不久后我们将把它替换为 Vim！）打开你的 vimrc，然后为它添加一些基础配置。我等下会解释它们的含义：
+
+```vim
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+```
+
+以及
+
+```vim
+set clipboard+=unnamedplus
+```
+
+vimrc 的内容以及一些 Vim 插件都是用 Vimscript 写的，这是专门为编辑器创造的一个特殊的编程语言。
