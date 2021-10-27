@@ -413,3 +413,64 @@ Vim 中的动作允许你水平（行内）或者竖直的移动你的光标。
 >
 >- 对于文本`test<空格>`来说，`test`是`iw`(`i`nner the `w`ord)，`test<空格>`是`aw`(`a` `w`ord)
 >- 对于文本`\ntest\n`来说，`test`是`ip`(`i`nner the `p`aragraph)，`test\n`是`ap`(`a` `p`aragraph)
+
+## Vim 选项(option)
+
+你可以通过修改 Vim 选项来修改 Vim 的行为。
+
+你可以将选项看做一个个变量，类型可能是 boolean(可以在打开与关闭之间切换)、string 或者 number。你可以使用 COMMAND-LINE 模式来查看它们的值或者进行临时修改。
+
+如果你想要永久性的修改一些选项，可以直接在你的 vimrc 中为其赋上新值（参考我们在文章开始时对`clipboard`选项的修改）。
+
+这里是一些你可以使用的命令：
+
+- `:set no<option>` - 关掉某个选项。
+- `:set <option>!` - 切换某个选项。
+- `:set <option>?` - 查看选项当前的值。
+- `:set <option>=<value>` - 设置选项的值为`<value>`。
+- `:set <option>+=<value>` - 对数字类型的选项，增加它的值；对于字符串选项，拼接`<value>`。
+- `:set <option>-=<value>` - 对数字类型的选项，减少它的值；对于字符串选项，移除`<value>`。
+- `:set <option>&` - 将选项重置为默认值。
+
+举例来说，如果你想查看当前是以什么文件类型打开当前文件的，可以执行：
+
+```vimrc
+:set filetype?
+```
+
+如果你要在 vimrc 中配置这些选项的话，请记得删除前缀`:`。
+
+> Vim help:
+>
+>- help options
+>- help option-list
+
+## Vim 旅程的开始
+
+恭喜你！你已经开始了对 Vim 的黑暗知识的了解。让我们来总结一下在这篇文章中学到了什么吧：
+
+- 好的打字习惯可以让你的打字变得又快又准，并且能帮助你更多的关注在你输入的内容上，而不是你的手或者你的键盘上。这会让你在打字时感觉更加掌控自如（这也是一个[减少压力](https://thevaluable.dev/developer-stress-management/)的不错的方法）。
+- 当你学到新的快捷键时，记得写下你的小抄，并且尝试找一些助记的方法来记住它们。这会加快你的学习进度。将自己的已知的东西与想要去学习的东西联系起来，能帮你快速的记住它们。
+- 你可以将操作符，动作以及文本对象绑定在一起，以用来在 NORMAL 模式中编辑文本。
+- 你需要使用基本键位中的`h`、`j`、`k`、`l`来在 Vim 中进行导航，这样你便可以真正的领略到 Vim 的舒适、强大以及无穷的乐趣了。
+- 尽量尝试使用文章中介绍的这些快捷键，这能帮助你借助[肌肉记忆](https://en.wikipedia.org/wiki/Muscle_memory)来记住它们。
+- Vim 的 boolean 选项可以进行打开、关闭、切换、或者重置。你也可以对于 number 或者 string 选项的值进行修改。为了确保 Vim 能够按你的预期行为运行，你也可以查看这些选项的值。
+
+如果现在，你还是不喜欢 Vim 的话，至少你已经尝试过了。以后你可以在像远程服务器这样没有选择的地方，使用它救一下急。更重要的是，现在你可以有理有据的说：我不喜欢 Vim！
+
+那么 Vim 学习之旅的下一个阶段是什么呢？
+
+- 你可以继续阅读本系列的第二部分文章，[Vim 爱好者指南](./vim-intermediate.md)
+- 你可以浏览一遍`vimtutor`。如果你在使用 Neovim，你可以执行 ex 命令`:Tuto`，Vim 用户则需要在你的命令行中执行`vimtutor`命令。
+- 我强烈推荐你阅读**Drew Neil** 的《Practical Vim》，这本书能教会你很多东西。
+- Vim 可以视为一个游戏：这个游戏的目标是如何用尽可能少的快捷键来完成你想要做的事情。在这一点上，[Vim Golf](https://www.vimgolf.com/)就做的非常有趣。
+
+如果到目前为止你还没有讨厌 Vim 的话，那你正处在一条成为 Vim 大师的路上。
+
+>- 相关资料：
+>
+>- [Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/) - Yann Esposito
+>- [Vimcasts](http://vimcasts.org/) - Drew Neil
+>- [Practical Vim](https://www.goodreads.com/book/show/13607232-practical-vim) - Drew Neil
+>- [vim-galore](https://github.com/mhinz/vim-galore) - Marco Hinz
+>- [7 Habits of Effective Text Editing](http://www.moolenaar.net/habits.html) - Bram Moolenaar
