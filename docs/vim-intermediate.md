@@ -34,7 +34,28 @@
 事实上，一个 buffer 可以拥有三种不同的状态：
 
 - **active** - 该 buffer 正在一个 window 中展示。
-- **hidden** - 该 buffer 正在一个 window 中展示。
-- **active** - 该 buffer 正在一个 window 中展示。
+- **hidden** - 该 buffer 虽然未被展示，但它确实存在，并且文件仍旧处于打开状态。
+- **inactive** - 该 buffer  未展示，并且它是一个空 buffer，未被链接到任何文件。
+
+hidden 状态 buffer 中的文件内容在 Vim 中并不是直接可见的。那么你可能会想：如果我看不到 buffer 的话，那我怎么知道它是不是仍处于打开状态呢？
+
+我们可以通过**buffer 列表**来查看所有打开的 buffer。你可以使用`:buffers` 命令来展示它们。它的每一行包括了：
+
+1. buffer 的唯一 ID
+2. 展示不同状态信息的标识符（例如： `a` 表示active，`h` 表示 hidden，`<SPACE>`（空格）表示 inactive）
+3. buffer 的名称（如果有的话），也可能是 buffer 所链接文件的文件路径
+4. 光标所在的行数
+
+例如：`27 %a "layouts/shortcodes/notice.html" line 18`意味着 ID 为 27 的 buffer 处于 active 状态，它的名字是`layouts/shortcodes/notice.html`，并且该文件中的光标位于第 18 行。你也可以通过状态前的`%`来识别当前 buffer 是否正在展示中。
+
+你可以使用这些命令来在 buffer 间导航：
+
+- `:buffer <ID_or_name>` - 使用 ID 或者名字来定位到某个 buffer。
+- `:bnext` 或 `:bn` - 切换到下一个 buffer。
+- `:bprevious` 或 `:bp` - 切换到上一个 buffer。
+- `:bfirst` 或 `:bf` - 切换到第一个 buffer。
+- `:blast` 或 `:bl` - 切换到最后一个 buffer。
+- `CTRL-^` - 切换到上一次访问的 buffer（处理在两个 buffer 间频繁切换的需求），该 buffer 会在你的 buffer 列表中用`#`标出来。
+- `<ID>CTRL-^` - 切换到某个特定 ID 的 buffer。例如：`75CTRL-^`切换到 ID 为 75 的 buffer。
 
 🚧 Working in progress, PR is welcome!
