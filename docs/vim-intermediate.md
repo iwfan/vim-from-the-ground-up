@@ -12,7 +12,7 @@
 
 先让我们来一起看一下吧：
 
-- 使用 buffer、窗口、tab、以及参数列表来管理打开的多个文件。
+- 使用 buffer（缓冲区）、window（窗口）、tab（标签页）、以及 argument list（参数列表） 来管理打开的多个文件。
 - 一些实用的在你整个项目中快速跳转的方法。
 - 命令的快捷键映射，或者为旧快捷键创建新的映射。
 - 一种强大的功能，帮助你重复你的快捷键操作。
@@ -55,7 +55,45 @@ hidden 状态 buffer 中的文件内容在 Vim 中并不是直接可见的。那
 - `:bprevious` 或 `:bp` - 切换到上一个 buffer。
 - `:bfirst` 或 `:bf` - 切换到第一个 buffer。
 - `:blast` 或 `:bl` - 切换到最后一个 buffer。
-- `CTRL-^` - 切换到上一次访问的 buffer（处理在两个 buffer 间频繁切换的需求），该 buffer 会在你的 buffer 列表中用`#`标出来。
+- `CTRL-^` - 切换到**交替 buffer**（**alternate buffer**, 一般为上一次访问的 buffer，处理在两个 buffer 间频繁切换的需求），该 buffer 会在你的 buffer 列表中用`#`标出来。
 - `<ID>CTRL-^` - 切换到某个特定 ID 的 buffer。例如：`75CTRL-^`切换到 ID 为 75 的 buffer。
+
+----
+
+如果你修改了某个文件并且没有保存它，你将无法关闭（或切换）当前 window 使得该 buffer 隐藏，也不能退出 Vim。Vim 会提示你有隐藏的未保存的 buffer。如果你不想看到这个提示的话，我推荐你在你的 vimrc （默认为`~/.vimrc`文件）中配置 hidden 选项：
+
+```vimscript
+set hidden
+```
+
+你可以直接在你当前的 Vim 中尝试使用`:set hidden!` 来切换该选项的激活与否，试一下切换这个选项，看一下哪个行为更适合你。
+
+想查看任何选项当前的值，你可以使用问号，例如：`:set hidden?` 或者 `:set filetype?`。
+
+> Vim help:
+>
+>- :help buffers
+>- :help :buffers
+
+### Window
+
+Vim 中的 window 指的是你可以用来展示一个 buffer 内容的空间。别忘了，当你关闭 window 时，buffer 依然存在。
+
+当你打开 Vim 时，会自动创建一个含有空 buffer 的 window。
+
+你可以使用`:new`命令来创建窗口，也可以使用下面的命令之一：
+
+- `CTRL-W s` - 水平划分当前的窗口。
+- `CTRL-W v` - 竖直划分当前的窗口。
+- `CTRL-W n` - 水平划分当前的窗口并编辑一个新文件。
+- `CTRL-W ^` - 使用交替 buffer 来水平划分当前窗口（该 buffer 会在你的 buffer 列表中用`#`标记出来）
+- `<buffer_ID>CTRL-W ^` - 使用指定 ID 的 buffer 来水平划分当前的窗口。例如：`75 CTRL-w ^`会使用 ID 为 75的 buffer 来打开窗口。
+
+你可以使用以下这些快捷键来将光标移动到另一个窗口：
+
+- `CTRL-W <Down>` 或者 `CTRL-W j`
+- `CTRL-W <Up>` 或者 `CTRL-W k`
+- `CTRL-W <Left>` 或者 `CTRL-W h`
+- `CTRL-W <Right>` 或者 `CTRL-W l`
 
 🚧 Working in progress, PR is welcome!
