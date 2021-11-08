@@ -58,7 +58,20 @@ hidden 状态 buffer 中的文件内容在 Vim 中并不是直接可见的。那
 - `CTRL-^` - 切换到**交替 buffer**（**alternate buffer**, 一般为上一次访问的 buffer，处理在两个 buffer 间频繁切换的需求），该 buffer 会在你的 buffer 列表中用`#`标出来。
 - `<ID>CTRL-^` - 切换到某个特定 ID 的 buffer。例如：`75CTRL-^`切换到 ID 为 75 的 buffer。
 
-----
+你也可以使用`:bufdo <command>`命令来对所有 buffer 执行同一条命令。
+
+不是所有的 buffer 都会展示在 buffer 列表，查看那些隐藏的 buffer 可以使用`:buffers!`或者`:ls!`命令。隐藏 buffer 的 ID 之后的标识符为`u`。
+
+现在，让我们来思考一个扩展问题，我们怎么才能创建 buffer 呢？
+
+- 如果你创建了一个 window，那么它会自动创建一个 buffer(下面会讲到)。
+- `:badd <filename>` - 将一个文件添加到 buffer 列表中。
+
+能创建 buffer，当然也能删除 buffer：
+
+- `:bdelete <ID_or_name>` - 通过 ID 或者名称来删除 buffer。你可以指定空格分割的多个 ID 或者名字。（译注：简写为`:bd`，也可以不传参，这会删除当前 buffer）
+- `:1,10bdelete` - 删除 ID 在 1 到 10 之间的 buffer。
+- `:%bdelete` - 删除所有 buffer。
 
 如果你修改了某个文件并且没有保存它，你将无法关闭（或切换）当前 window 使得该 buffer 隐藏，也不能退出 Vim。Vim 会提示你有隐藏的未保存的 buffer。如果你不想看到这个提示的话，我推荐你在你的 vimrc （默认为`~/.vimrc`文件）中配置 hidden 选项：
 
@@ -95,5 +108,10 @@ Vim 中的 window 指的是你可以用来展示一个 buffer 内容的空间。
 - `CTRL-W <Up>` 或者 `CTRL-W k`
 - `CTRL-W <Left>` 或者 `CTRL-W h`
 - `CTRL-W <Right>` 或者 `CTRL-W l`
+
+你可能也总是会想着移动你的窗口，可以使用下面这些命令来完成：
+
+- `CTRL-W r` - 转动所有窗口。（旋转同一行/列划分的多个窗口）
+- `CTRL-W x` - 与下一个窗口进行交换。
 
 🚧 Working in progress, PR is welcome!
