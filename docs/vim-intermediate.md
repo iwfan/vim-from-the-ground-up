@@ -414,3 +414,57 @@ o
 >- :help undo-redo
 >- :help undo-persistence
 >- :help undo-tree
+
+## 插件
+
+到目前为止，我们看到的所有功能都可以使用插件来进行管理。
+
+### 插件管理器
+
+我们可以使用插件管理器来管理 Vim 的插件。我推荐`vim-plug`：你可以在它的[Github 页面](https://github.com/junegunn/vim-plug)中找到安装介绍。
+
+安装之后，便可以将这些命令放在你`.vimrc`的开始：
+```vim
+" 指定插件存放位置
+" - 对于 Neovim: stdpath('data') . '/plugged'
+" - 避免使用像'plugin'这样的标准 Vim 文件夹
+call plug#begin('~/.vim/plugged')
+call plug#end()
+```
+
+同样的，你可以将`~/.vim/plugged`修改为你需要的存储位置。
+
+如果你想要安装插件`vim-bbye`，你需要：
+
+1. 找到插件的 Github 仓库，对于这个示例来说是：`https://github.com/moll/vim-bbye`
+2. 从链接地址中拿到用户名及仓库名：`moll/vim-bbye`
+3. 在`call plug#begin('~/.vim/plugged')`跟`call plug#end()`之间添加：`Plug 'moll/vim-bbye'`
+4. 使用命令来应用你的`.vimrc`: `:source <path_to_vimrc>`。如果你当前 buffer 中正打开着你的 vimrc,你可以直接运行`:source %`
+5. 执行`:PlugInstall`
+6. 这样你的插件就安装完成了
+
+你还可以使用`:PlugUpdate`来更新你的所有插件，该命令也会同时更新你未安装的插件。
+
+### 不关闭窗口的情况下关闭buffer
+
+默认的，当你使用`:bdelete`来关闭一个 buffer 时，其对应的 window 也会被关闭。如果你想要保留你的窗口布局，你可以使用[vim-bbye](https://github.com/moll/vim-bbye)插件。
+
+这是一个非常简单的组件，它提供给你一个新的命令：`:Bdelete`(大写 `B`)，允许你在不关闭窗口的情况下关闭 buffer。
+
+### 便捷的窗口调整
+
+我个人对于原生的调整窗口的方式并不喜爱，插件[winresizer](https://github.com/simeji/winresizer)可以给你提供一个新的**模式**用来调整。
+
+为了进入此模式，你需要使用快捷键`CTRL-e`。如果你不喜欢的话，可以参照下面的命令放入 vimrc 来修改:
+```vim
+let g:winresizer_start_key = "<leader>w"
+```
+
+现在，你可以使用快捷键`LEADER w` 来进入新的窗口调整模式。这只是一个示例，你可以将其定义为任何你想要的快捷键。
+
+当你进入到调整模式后，Vim 的底端会显示一些帮助信息。你可以使用`hjkl`来调整窗口大小，`e`来在`resize`、`focus`、`move`三种不同功能模式之间进行切换。
+
+### 在 buffer 之间进行跳转
+
+我强烈推荐你使用插件[fzf.vim](https://github.com/junegunn/fzf.vim)，它可以帮助你在你当前路径(使用选项 `option` 来配置)下模糊搜索 buffer 或者文件。
+
