@@ -468,3 +468,41 @@ let g:winresizer_start_key = "<leader>w"
 
 我强烈推荐你使用插件[fzf.vim](https://github.com/junegunn/fzf.vim)，它可以帮助你在你当前路径(使用选项 `option` 来配置)下模糊搜索 buffer 或者文件。
 
+你需要安装[fzf](https://github.com/junegunn/fzf)来使用该插件。安装完成之后，你可以使用命令`:Buffers` 来模糊搜索并选择你想要的 buffer。
+
+搜索 buffer 只是 fzf 能做的事情的一个很小的子集。
+
+### 操作 undo 树
+
+前文我们聊过的，有个非常有用的插件来回到你任何想要的修改：[MundoTree](https://github.com/simnalamburt/vim-mundo)。使用命令`:MundoToggle`会在一个新的 buffer 中展示你当前的 buffer 的 undo 树。
+
+然后你便可以在这里选择任何你想要回到的修改了。
+
+## 通往精深之路
+
+有很多 Vim 的重要特性我还没有写到本文中。在本文最后的部分你可以找到一部分相关帮助命令，如果有人感兴趣的话，我会在下一个文章中介绍它们。
+
+我强烈认为，了解原理与基本概念可以帮助你了解任何建立在之上的内容。因此，了解原生的 Vim 是如何工作、掌握其基础概念对你决定什么样的插件有用是非常重要的。
+
+如果你喜欢这篇文章的内容的话，你可能也会对我在[另一篇文章](https://thevaluable.dev/vim-search-find-replace/)中的提到的 Vim 搜索与替换感兴趣。
+
+我们在这篇文章中都学了什么呢：
+
+- buffer就是打开的文件，窗口是 buffer 的容器，tab 是窗口的集合，参数列表就是 buffer 列表的子集。
+- 你可以在 Vim 的任何模式中递归的映射快捷键，但最好是避免这样做。
+- 你可以使用快捷键来在你的修改列表与跳转列表之间穿梭。
+- 使用点操作符与 Vim 宏可以自动的重复你的修改，这是非常有用的。
+- 你可以使用命令行窗口来重新运行或者修改执行过的命令，这基于保存的命令行历史。
+- Vim 的 undo 树允许你在任何文件中回到任何修改，即使在关闭 Vim 之后。
+- vim-bbye 与 winresizer 插件可以帮助你更轻松的管理你的 buffer 与窗口。
+
+看完本文还不尽兴吗？你可以继续阅读本系列的下一部分文章: [Vim 进阶者指南](./vim-advanced.md)。
+
+使用 Vim 时，你的输入变得更加快了吗？这个问题对于我个人来说并不重要。我热爱 Vim 是因为它的灵活性以及独特的编辑方式。这才是为我带来真正的生产力提升的地方。
+
+>- 相关资料：
+>
+>- Vimcast - Working with buffers - Drew Neil
+>- Vimcast - Meet the arglist - Drew Neil
+>- Practical Vim - Drew Neil
+>- Youtube channel - ThePrimeagen - Theprimeagen
