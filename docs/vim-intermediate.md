@@ -502,7 +502,7 @@ let g:winresizer_start_key = "<leader>w"
 
 >- 相关资料：
 >
->- Vimcast - Working with buffers - Drew Neil
->- Vimcast - Meet the arglist - Drew Neil
->- Practical Vim - Drew Neil
->- Youtube channel - ThePrimeagen - Theprimeagen
+>- [Vimcast - Working with buffers](http://vimcasts.org/episodes/working-with-buffers/) - Drew Neil
+>- [Vimcast - Meet the arglist](http://vimcasts.org/episodes/meet-the-arglist/) - Drew Neil
+>- [Practical Vim](https://www.goodreads.com/book/show/13607232-practical-vim) - Drew Neil
+>- [Youtube channel - ThePrimeagen](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw) - Theprimeagen
